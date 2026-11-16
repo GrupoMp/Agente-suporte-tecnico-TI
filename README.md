@@ -48,17 +48,9 @@ O **Palantir** é o serviço de monitoramento interno do time: ele recebe um sin
 
 ### Pausa de emergência
 
-Para suspender a IA sem acessar o servidor, basta abrir no Acelerato um chamado com `__pause__` no título (maiúsculas ou minúsculas). Em cada ciclo, se algum chamado pendente tiver o marcador, o monitor registra `IA pausada` no log e encerra o ciclo sem atender nada. Para retomar, é só concluir esse chamado: em até 2 minutos a IA volta ao normal sozinha.
+Para pausar a IA, abra no Acelerato um chamado com `__pause__` no título. Para retomar, conclua esse chamado: a IA volta sozinha em até 2 minutos.
 
-Durante a pausa:
-
-- **Chamados novos** não são atendidos. Na volta, os que ainda estiverem pendentes são atendidos normalmente.
-- **Chamados em acompanhamento** também ficam sem resposta. Os comentários feitos nesse período não se perdem: são respondidos quando a IA retoma.
-- **O prazo de 3 dias** de acompanhamento continua correndo, então uma pausa longa pode fazer um chamado expirar sem ter sido acompanhado.
-- **O Palantir** continua recebendo o sinal de vida, porque o ciclo pausado termina sem erro. Ele só alerta se a IA estiver de fato parada, não se estiver pausada.
-- **O processo** continua rodando, sem precisar reiniciar o container.
-
-O marcador fica em `MARCADOR_DE_PAUSA`, no `agente/config.py`.
+Enquanto está pausada, a IA não atende chamados novos nem responde comentários. Quando volta, ela atende o que ficou pendente. O processo continua rodando, e não é preciso reiniciar nada.
 
 ## Tecnologias
 
