@@ -43,6 +43,9 @@ class Acelerato:
     def comentarios_de_humanos(self, comentarios: list[Comentario]) -> list[Comentario]:
         return [c for c in comentarios if c.usuario_key != self.usuario_key_ia]
 
+    def responder(self, ticket_key: int, texto: str) -> None:
+        api.responder_chamado_acelerato(ticket_key, texto)
+
     def status(self, ticket_key: int) -> StatusChamado:
         status = api.verificar_status_chamado(ticket_key)
         return StatusChamado(

@@ -15,6 +15,7 @@ from agno.tools.reasoning import ReasoningTools
 import instructions.instructions_auto_agent as prompt_operacional
 from agente.acelerato import Acelerato, Comentario
 from agente.config import (
+    AVISO_DE_IA_INDISPONIVEL,
     AVISO_DE_NOVA_TENTATIVA,
     DEBUG,
     MODELO_ID,
@@ -150,5 +151,6 @@ class Atendente:
         # O Agno não lança exceção quando o principal e a reserva falham: devolve status de erro.
         if resposta.status == RunStatus.error:
             log.error("Chamado #%s não foi atendido: %s", ticket_key, resposta.content)
+            self.acelerato.responder(ticket_key, AVISO_DE_IA_INDISPONIVEL)
             return
         log.info("Chamado #%s: %s", ticket_key, resposta.content)

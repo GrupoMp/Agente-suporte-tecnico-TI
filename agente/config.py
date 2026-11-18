@@ -21,6 +21,10 @@ PALANTIR_URL = "http://localhost:8787/ping/ia-ti"
 INTERVALO_DO_PALANTIR_EM_SEGUNDOS = 60 * 60
 
 AVISO_DE_NOVA_TENTATIVA = "Se quiser que eu tente novamente, é só adicionar um comentário abaixo."
+AVISO_DE_IA_INDISPONIVEL = (
+    "Não consegui concluir o atendimento deste chamado porque a IA está indisponível no momento. "
+    + AVISO_DE_NOVA_TENTATIVA
+)
 
 NOME_DO_AGENTE = "Agente do ACELERATO"
 MODELO_ID = "deepseek-flash"
