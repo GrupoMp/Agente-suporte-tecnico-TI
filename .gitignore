@@ -34,3 +34,4 @@ run_voucher_creation.py.venv/
 !uv.lock
 
 Main_agent.py
+ * agendamentos_pendentes.json
